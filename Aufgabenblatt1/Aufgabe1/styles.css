@@ -1,0 +1,109 @@
+#addbutton{
+	background: url(Images/add.png);
+	height:21px;
+	width:21px;	
+}
+button{
+	border-radius: 4px;
+}
+#buttondiv{
+	padding-left: 120px;
+}
+body {
+    background-color: lightyellow;
+}
+#changebutton {
+	background: url(Images/pencil.gif);
+	height: 19px;
+	width: 19px;
+}
+.dialog_button{
+	background: #FF8500;
+	border: none;
+	color: white;
+	text-align: center;
+	padding: 5px;
+	margin-top: 5px;
+}
+#deletebutton{
+	background: url(Images/bin2.png);
+	height: 19px;
+	width: 19px;
+}
+#deletebutton img{
+	width: 15px;
+	height: auto;
+}
+.field {
+	padding-left:8%;
+	padding-right: 8%;
+	position:middle;
+	width:auto;
+	vertical-align:center;
+	background-color:lightgray;
+	border-radius: 10px;
+}
+fieldset {
+	position:middle;
+}
+#form1 {
+	font-weight: bold;
+}
+input {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+legend { 
+    display: block;
+    padding-left: 2px;
+    padding-right: 2px;
+    border: none;
+}
+#name {
+	margin-left: 150px;
+	width: 170px;
+}
+#mail {
+	margin-left: 143px;
+	width: 168px;
+}
+#plz {
+	margin-left: 112px;
+	width: 100px;
+}
+#ort{
+	margin-left: 165px;
+	width: 170px;
+}
+#s\+h{
+	margin-left: 16px;
+	width: 170px;
+}
+table{
+	border: 1px solid black;
+	color: rgb(107, 107, 107);
+	width: 95%;
+	position:left;
+}
+th{
+	background-color:#778899;
+	color:white;
+	text-align:left;
+	padding: 2px;	
+}
+tr, td, th{
+	border: none;
+	padding-left: 10px;
+	padding: 2px;
+}
+tr:nth-child(even){
+		background: white;
+}
+tr:nth-child(odd){
+	background: #B0C4DE;
+}
+#searchbutton {
+	background: url(Images/magnify.png);
+	height:17px;
+	width:17px;	
+}

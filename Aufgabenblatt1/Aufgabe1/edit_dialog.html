@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+	<title>Aufgabe 1</title>
+	<script src="./js/Script.js"></script>
+	<script src="./js/jquery.js"></script>
+</head>
+<body onload="getData()">
+	<fieldset class="field">
+	<legend>Adresse bearbeiten</legend>
+		<form id="form1">
+			<label for="name">Name:</label>					<input type="text" name="name" id="name"	readonly><br>
+			<label for="mail">E-Mail:</label>				<input type="mail" name="mail" id="mail"	required><br>
+			<label for="plz:">Postleitzahl:</label>			<input type="number" name="plz" id="plz"	required><br>
+			<label for="ort">Ort:</label>					<input type="text" name="ort" id="ort"		required><br>
+			<label for="s+h">Straße und Hausnummer:</label>	<input type="text" name="s+h" id="s+h"		required><br>
+		</form>
+		<div id="buttondiv">
+			<button class="dialog_button" type="button" onclick="window.location.href='Index.html'">abbrechen</button>
+			<button class="dialog_button" type="button" name="speicherbutton" onclick='save()' >speichern</button>	
+		</div>
+	</fieldset>
+</body>
+</html>

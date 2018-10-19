@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+	<title>Aufgabe 1</title>
+	<script src="./js/Script.js"></script>
+	<script src="./js/jquery.js"></script>
+</head>
+<body onload="read()">
+	<fieldset class="field">
+	<legend>Adressen suchen:</legend>
+		<form>
+			<label for="search_name">Name:</label></label><input type="text" name="name" label="Name:" id="search_name">
+			<label for="search_ort">Ort:</label><input type="text" name="ort" id="search_ort">
+			Sortierung:
+			<select name="Sortierung:">
+			<option value="name">Name</option>
+			<option value="ort" selected>Ort</option>
+			<option value="plz">PLZ</option>
+			</select>
+			<button id="searchbutton" type="button" onclick="alert('Hello world!')" title="Search"></button>
+		</form> 	
+	</fieldset>
+	<div>
+		<fieldset  class="field">
+		<legend>Gefundene Adressen</legend>
+		<button id="addbutton" type="button" onclick="window.location.href='Dialog.html'" title="Add"></button>
+
+			<table id="table" cellspacing="0" cellpadding="0">
+				<tr>
+				<th>Name</th>
+				<th>E-Mail</th>
+				<th>Ort</th>
+				<th>PLZ</th>
+				<th>Strasse + Nummer</th>
+				<th>Aktion</th>
+				</tr>
+			
+			</table>
+		</fieldset>
+	</div>
+
+</body>
+</html>
