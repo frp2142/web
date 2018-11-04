@@ -85,6 +85,7 @@ function belegeZeile(table, adresse) {
 
 
 	// edit button
+	td = tr.insertCell(6);
 	var button = document.createElement('button');
 	button.onclick = function() {
 		bearbeiteAdresse(this);

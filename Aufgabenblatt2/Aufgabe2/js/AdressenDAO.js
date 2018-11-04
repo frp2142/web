@@ -66,16 +66,15 @@ class AdressenDAO {
 	 * definiert, die dann für die Sortierung mit "sort" genutzt wird.
 	 */
 	sortiereAdressenListe(liste, sortierung) {
-
 		// sort by ort
 		if (sortierung == "Ort") {
 			liste.sort(function (a, b) {
 				var a = a.ort.toLowerCase();
 				var b = b.ort.toLowerCase();
-				if (a.value > b.value) {
+				if (a < b) {
 					return 1;
 				}
-				if (a.value < b.value) {
+				if (a > b) {
 					return -1;
 				}
 				// a muss gleich b sein
@@ -87,10 +86,10 @@ class AdressenDAO {
 			liste.sort(function (a, b) {
 				var a = a.name.toLowerCase();
 				var b = b.name.toLowerCase();
-				if (a.value > b.value) {
+				if (a < b) {
 					return 1;
 				}
-				if (a.value < b.value) {
+				if (a > b) {
 					return -1;
 				}
 				// a muss gleich b sein
@@ -99,7 +98,7 @@ class AdressenDAO {
 		} else {
 			//plz
 			liste.sort(function (a, b) {
-				return a.value - b.value;
+				return a - b;
 			});
 
 		}
@@ -147,7 +146,6 @@ class AdressenDAO {
 				}
 			}
 		}
-
 		this.sortiereAdressenListe(ergebnis, sortierung);
 		return ergebnis;
 	}

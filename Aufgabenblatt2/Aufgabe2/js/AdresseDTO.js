@@ -57,14 +57,10 @@ class AdresseDTO {
 	 */
 	pruefe() {
 		if (validateEmail(document.getElementById('emailID').value) != true) {
-			alert("E-Mail Adresse ist falsch");
-			$('#mail').css('border-color', 'red');
-			return;
+			throw "Fehler in Email-Adresse!";
 		}
 		if (validatePLZ(document.getElementById('plzID').value) != true) {
-			alert("PLZ ist flasch");
-			$('#plz').css('border-color', 'red');
-			return;
+			throw "Fehler in der Postleitzahl!"
 		}
 	}
 
