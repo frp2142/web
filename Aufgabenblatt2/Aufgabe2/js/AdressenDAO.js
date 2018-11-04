@@ -64,7 +64,7 @@ class AdressenDAO {
 	 * definiert, die dann für die Sortierung mit "sort" genutzt wird.
 	 */
 	sortiereAdressenListe(liste, sortierung) {
-		// *** (3) ***
+		return liste.sort(sortierung);
 	}
 
 	/*
@@ -141,9 +141,8 @@ class AdressenDAO {
 	 * Es wird nur "logisch" gelöscht, indem die id auf den Wert -1 gesetzt wird.
 	 */
 	loescheAdresse(id) {
-		// *** (4) ***
-	}
-
+		localStorage.getItem(localStorage.getItem(id))
+		}
 	/*
 	* Getter für adresseDAO ---------------------------------------------
 	*/
