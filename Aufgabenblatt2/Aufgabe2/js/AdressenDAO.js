@@ -51,8 +51,8 @@ class AdressenDAO {
 	 * 		(der Namensfilter wird nicht evaluiert, 'I'' ist nicht Präfix von 'ngolstadt'')
 	 */
 	filter(adresse, name, ort) {
-		var name_re = /^name/;
-		var ort_re = /^ort/;
+		var name_re = new RegExp('^'+name);
+		var ort_re = new RegExp('^'+ort);
 
 		if (!(name_re.test(adresse.name) && ort_re.test(adresse.ort))) {
 			return false;
