@@ -18,10 +18,10 @@ class AdressenDAO {
 		var i;
 		var gespeichertesDAOalsString = localStorage.getItem('adressenDAO');
 		var gespeichertesDAO = JSON.parse(gespeichertesDAOalsString);
-		
+
 		if (gespeichertesDAO != null)
 			this._adressenArray = gespeichertesDAO._adressenArray;
-		
+
 		for (i = 0; i < this._adressenArray.length; ++i) {
 			this._adressenArray[i] = new AdresseDTO(
 				this._adressenArray[i]._id,
@@ -31,7 +31,7 @@ class AdressenDAO {
 				this._adressenArray[i]._plz,
 				this._adressenArray[i]._strasse);
 		}
-		
+
 		console.log('gespeichertesDAO: ', gespeichertesDAO);
 	}
 
@@ -51,20 +51,58 @@ class AdressenDAO {
 	 * 		(der Namensfilter wird nicht evaluiert, 'I'' ist nicht Präfix von 'ngolstadt'')
 	 */
 	filter(adresse, name, ort) {
-		
-		if (! (('^' + name).test(adresse.name) && ('^' + ort).test(adresse.ort)) ){
+		var name_re = /^name/;
+		var ort_re = /^ort/;
+
+		if (!(name_re.test(adresse.name) && ort_re.test(adresse.ort))) {
 			return false;
-		} 
+		}
 		return true;
-	};	
-	
+	};
+
 	/**
 	 * Gibt das übergebene AdresseDTO-Array 'liste'' sortiert nach 'sortierung' (= string-Wert 
 	 * Name, Ort oder PLZ) zurück. Abhängig vom Wert von 'sortierung' wird eine passende sortierFunktion
 	 * definiert, die dann für die Sortierung mit "sort" genutzt wird.
 	 */
 	sortiereAdressenListe(liste, sortierung) {
-		return liste.sort(sortierung);
+
+		// sort by ort
+		if (sortierung == "Ort") {
+			liste.sort(function (a, b) {
+				var a = a.ort.toLowerCase();
+				var b = b.ort.toLowerCase();
+				if (a.value > b.value) {
+					return 1;
+				}
+				if (a.value < b.value) {
+					return -1;
+				}
+				// a muss gleich b sein
+				return 0;
+			});
+		}
+		// sort by name
+		if (sortierung == "Name") {
+			liste.sort(function (a, b) {
+				var a = a.name.toLowerCase();
+				var b = b.name.toLowerCase();
+				if (a.value > b.value) {
+					return 1;
+				}
+				if (a.value < b.value) {
+					return -1;
+				}
+				// a muss gleich b sein
+				return 0;
+			});
+		} else {
+			//plz
+			liste.sort(function (a, b) {
+				return a.value - b.value;
+			});
+
+		}
 	}
 
 	/*
@@ -73,23 +111,23 @@ class AdressenDAO {
 	findeAdresseZuId(id) {
 		this.laden();
 		var p = this._adressenArray[id];
-		
+
 		return p;
 	}
-	
+
 	findeAlle() {
 		this.laden();
 		var ergebnis = [];
 		var i, j = 0;
-		
+
 		for (i = 0; i < this._adressenArray.length; ++i) {
 			if (this._adressenArray[i].id != -1) {
 				ergebnis[j++] = this._adressenArray[i];
 			}
 		}
-				
+
 		ergebnis.sort(
-			function(p1, p2) { 
+			function (p1, p2) {
 				return p1.id - p2.id;
 			}
 		);
@@ -101,15 +139,15 @@ class AdressenDAO {
 		this.laden();
 		var ergebnis = [];
 		var i, j = 0;
-		
+
 		for (i = 0; i < this._adressenArray.length; ++i) {
 			if (this._adressenArray[i].id != -1) {
-				if (this.filter(this._adressenArray[i], name, ort)) { 
+				if (this.filter(this._adressenArray[i], name, ort)) {
 					ergebnis[j++] = this._adressenArray[i];
 				}
 			}
 		}
-				
+
 		this.sortiereAdressenListe(ergebnis, sortierung);
 		return ergebnis;
 	}
@@ -117,7 +155,7 @@ class AdressenDAO {
 	neueAdresse(adresse) {
 		this.laden();
 		var i;
-		
+
 		for (i = 0; i < this._adressenArray.length; ++i) {
 			if (this._adressenArray[i].id == -1) {
 				break;
@@ -141,23 +179,26 @@ class AdressenDAO {
 	 * Es wird nur "logisch" gelöscht, indem die id auf den Wert -1 gesetzt wird.
 	 */
 	loescheAdresse(id) {
-		localStorage.getItem(localStorage.getItem(id))
-		}
+		//speichere Inhalt
+		var oldValue = localStorage.getItem(localStorage.key(id));
+		localStorage.setItem("-1", oldValue);
+		localStorage.removeItem(id);
+	}
 	/*
 	* Getter für adresseDAO ---------------------------------------------
 	*/
 	static gibAdresseDAO() {
 		var dao = "undefined";
-		
-		if (typeof(Storage) !== "undefined") {
-			dao = new AdressenDAO();		
+
+		if (typeof (Storage) !== "undefined") {
+			dao = new AdressenDAO();
 			if (localStorage['adressenDAO']) {
 				try {
 					var i;
-					
+
 					dao.laden();
 					for (i = 0; i < dao._adressenArray.length; ++i) {
-						var p = dao._adressenArray[i]; 
+						var p = dao._adressenArray[i];
 						console.log(p.toString());
 					}
 
@@ -167,8 +208,8 @@ class AdressenDAO {
 			}
 		} else {
 			alert("Sorry, your browser does not support web storage…");
-		}	
-		
+		}
+
 		return dao;
 	}
 }

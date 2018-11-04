@@ -1,8 +1,8 @@
 /*
  * Data Transfer Object für Fachobjekt Adresse
  */
-class AdresseDTO  {
-	
+class AdresseDTO {
+
 	constructor(id, name, email, ort, plz, strasse) {
 		this._id = id;
 		this._name = name;
@@ -56,37 +56,38 @@ class AdresseDTO  {
 	 * meldung ausgegeben werden.
 	 */
 	pruefe() {
-		if (validateEmail(document.getElementById('mail').value)!= true){
+		if (validateEmail(document.getElementById('emailID').value) != true) {
 			alert("E-Mail Adresse ist falsch");
 			$('#mail').css('border-color', 'red');
 			return;
 		}
-		if (validatePLZ(document.getElementById('plz').value)!= true){
+		if (validatePLZ(document.getElementById('plzID').value) != true) {
 			alert("PLZ ist flasch");
 			$('#plz').css('border-color', 'red');
 			return;
 		}
-    }
-
-	/**
-	 * Liefert true, falls 'email' eine korrekte E-Mail-Adresse enthält.
-	 */
-	validateEmail(email) {
-		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    	return re.test(email);
 	}
 
-	validatePLZ(plz){
-		var re = /^(\d{5})$/;
-		return re.test(String(plz));
+	toString() {
+		return "{" + this.id + ", " +
+			this.name + ", " +
+			this.email + ", " +
+			this.ort + ", " +
+			this.plz + ", " +
+			this.strasse + "}";
 	}
+}
 
-    toString() {
-    	return "{" + this.id + ", " +
-    		this.name + ", " + 
-    		this.email + ", " + 
-    		this.ort + ", " + 
-    		this.plz + ", " + 
-    		this.strasse + "}";
-    }
+/**
+ * Liefert true, falls 'email' eine korrekte E-Mail-Adresse enthält.
+ */
+function validateEmail(email) {
+	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	console.log(re.test(email));
+	return re.test(email);
+}
+
+function validatePLZ(plz) {
+	var re = /^(\d{5})$/;
+	return re.test(String(plz));
 }

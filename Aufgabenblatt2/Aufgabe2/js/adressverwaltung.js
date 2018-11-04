@@ -56,8 +56,8 @@ function belegeZeile(table, adresse) {
 	console.log("belegeZeile: adresse = " + adresse.toString());
 
 	var tr = table.insertRow(1); // Überschrift überspringen	
+
 	var td  = tr.insertCell(0);
-	
    	var inhalt  = document.createTextNode(adresse.id);
    	td.appendChild(inhalt);
    	td.hidden = "true";
@@ -67,6 +67,22 @@ function belegeZeile(table, adresse) {
    	td.appendChild(inhalt);
 
 	// *** (5) ***
+	td = tr.insertCell(2);
+	inhalt = document.createTextNode(adresse.email);
+	td.appendChild(inhalt);
+
+	td = tr.insertCell(3);
+	inhalt = document.createTextNode(adresse.ort);
+	td.appendChild(inhalt);
+
+	td = tr.insertCell(4);
+	inhalt = document.createTextNode(adresse.plz);
+	td.appendChild(inhalt);
+
+	td = tr.insertCell(5);
+	inhalt = document.createTextNode(adresse.strasse);
+	td.appendChild(inhalt);
+
 
 	// edit button
 	var button = document.createElement('button');
@@ -80,8 +96,18 @@ function belegeZeile(table, adresse) {
 	button.appendChild(image);
 	td.appendChild(button);
 	// delete button
-
+	
 	// *** (6) ***
+	var button = document.createElement('button');
+	button.onclick = function() {
+		loescheAdresse(this);
+	};
+	var image = document.createElement('img');
+	image.src = "images/trashIcon.jpg";
+	image.width = "15";
+	image.height = "15";
+	button.appendChild(image);
+	td.appendChild(button);
 
 }
 
@@ -117,17 +143,21 @@ function adresseBearbeitenAbbrechen() {
 
 function speichereAdresse() {
 	var id = document.getElementById("idID").value;
+	console.log("id = " +id);
 	var adresse = new AdresseDTO(id,
 			document.getElementById("nameID").value,
 			document.getElementById("emailID").value,
 			document.getElementById("ortID").value,
 			document.getElementById("plzID").value,
 			document.getElementById("strasseID").value);
+			console.log(adresse);
     
     try {
     	adresse.pruefe();
     	if (id == -1) {
-    		adressenDAO.neueAdresse(adresse);    		
+			console.log("neue Adresse");  
+			adressenDAO.neueAdresse(adresse);
+			  		
     	} else {
     		adressenDAO.aktualisiereAdresse(adresse);    		
     	}    	
