@@ -97,7 +97,6 @@ function belegeZeile(table, adresse) {
 	button.appendChild(image);
 	td.appendChild(button);
 	// delete button
-	
 	// *** (6) ***
 	var button = document.createElement('button');
 	button.onclick = function() {

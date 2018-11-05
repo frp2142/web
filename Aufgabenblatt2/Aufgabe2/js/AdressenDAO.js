@@ -67,7 +67,9 @@ class AdressenDAO {
 	 */
 	sortiereAdressenListe(liste, sortierung) {
 		// sort by ort
+		console.log("Sortierung="+sortierung);
 		if (sortierung == "Ort") {
+			console.log("Sort by 'Ort'");
 			liste.sort(function (a, b) {
 				var a = a.ort.toLowerCase();
 				var b = b.ort.toLowerCase();
@@ -83,6 +85,7 @@ class AdressenDAO {
 		}
 		// sort by name
 		if (sortierung == "Name") {
+			console.log("Sort by 'Name'");
 			liste.sort(function (a, b) {
 				var a = a.name.toLowerCase();
 				var b = b.name.toLowerCase();
@@ -95,10 +98,14 @@ class AdressenDAO {
 				// a muss gleich b sein
 				return 0;
 			});
-		} else {
-			//plz
+		}
+		//plz
+		if (sortierung == "PLZ"){
+			console.log("Sort by 'PLZ'");
 			liste.sort(function (a, b) {
-				return a - b;
+				var a = a.plz;
+				var b = b.plz;
+				return b - a;
 			});
 
 		}
@@ -178,10 +185,10 @@ class AdressenDAO {
 	 */
 	loescheAdresse(id) {
 		//speichere Inhalt
-		var oldValue = localStorage.getItem(localStorage.key(id));
-		localStorage.setItem("-1", oldValue);
-		localStorage.removeItem(id);
-	}
+		this._adressenArray[id]._id = "-1";
+		console.log(this._adressenArray[id]);
+		this.speichern();
+	};
 	/*
 	* Getter für adresseDAO ---------------------------------------------
 	*/

@@ -56,11 +56,24 @@ class AdresseDTO {
 	 * meldung ausgegeben werden.
 	 */
 	pruefe() {
+		//Prüfe ob Name da
+		if (document.getElementById('nameID').value == ""){
+			throw "Bitte geben Sie einen Namen ein!"
+		}
+		//Prüfe ob Mail richtig und da
 		if (validateEmail(document.getElementById('emailID').value) != true) {
 			throw "Fehler in Email-Adresse!";
 		}
+		//Prüfe ob PLZ da und richtig
 		if (validatePLZ(document.getElementById('plzID').value) != true) {
 			throw "Fehler in der Postleitzahl!"
+		}
+		if (document.getElementById('ortID').value == ""){
+			throw "Bitte geben Sie einen Ort ein!"
+		}
+		//Prüfe Straße und HN da
+		if (document.getElementById('strasseID').value == ""){
+			throw "Bitte geben Sie eine Straße und Hausnummer ein!"
 		}
 	}
 
