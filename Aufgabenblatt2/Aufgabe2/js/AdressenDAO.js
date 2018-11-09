@@ -101,7 +101,6 @@ class AdressenDAO {
 		}
 		//plz
 		if (sortierung == "PLZ"){
-			console.log("Sort by 'PLZ'");
 			liste.sort(function (a, b) {
 				var a = a.plz;
 				var b = b.plz;
