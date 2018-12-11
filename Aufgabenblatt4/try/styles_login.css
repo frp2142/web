@@ -1,0 +1,90 @@
+
+.loginHeader {
+    background-color: lightgrey;
+}
+
+.loginFooter {
+    color: red;
+}
+
+.steckbriefBild {
+    height: 240px;
+    width: 210px;
+}
+
+.loginDlgButton {
+    width: 100px;
+}
+
+#steckbriefPicture {
+    float: left;
+}
+
+#steckbriefSpacer {
+    float: left;
+    width: 50px;
+}
+
+#steckbriefDaten {
+    float: left;
+}
+
+.button-group {
+    text-align: center;
+}
+
+#headline{
+    color: #827c7e ;	
+    font-weight: 700;
+    text-align: center;
+    font-size: 30px;
+}
+
+#outside{
+    background-color: #ffecec;
+
+    border: 2px solid black;
+    border-color: black;
+
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 20px;
+}
+#content{
+    border: 10px solid black;
+    border-radius: 3px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    background-color: black;
+    overflow: hidden;
+}
+div.container div#buttondiv button {
+    margin-bottom: 20px;
+    margin-top: -20;
+    margin-left: 5%;
+}
+#insideSteckbrief{
+    border-radius: 3px;
+    border: 3px solid white;
+    background-color: white;
+    overflow: hidden;
+}
+
+.nav-link\ active\ show{
+    background-color: white;
+    border-bottom:2px solid white;
+    border: 2px solid;
+}
+.nav-link{
+    background-color: blue;
+    border: 4px solid black;
+    margin-left:1px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+}
+
+#login{
+    margin-left: 10%;
+    margin-bottom: 5%;
+}

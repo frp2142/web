@@ -1,0 +1,22 @@
+h1{
+    color: #827c7e;	
+    text-align: center;
+}
+
+#outside{
+    background-color: #ffecec;
+
+    border: 2px solid black;
+    border-color: black;
+
+    margin-left: 20%;
+    margin-right: 20%;
+}
+#inside{
+    border: 10px solid black;
+    border-radius: 3px;
+ 
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
