@@ -1,0 +1,175 @@
+
+.loginHeader {
+    background-color: lightgrey;
+}
+
+.loginFooter {
+    color: red;
+}
+
+.steckbriefBild {
+    height: 240px;
+    width: 210px;
+}
+
+.loginDlgButton {
+    width: 100px;
+}
+
+#steckbriefPicture {
+    float: left;
+}
+
+#steckbriefSpacer {
+    float: left;
+    width: 50px;
+}
+
+#steckbriefDaten {
+    float: left;
+}
+
+.button-group {
+    text-align: center;
+}
+
+#headline{
+    color: #827c7e ;	
+    font-weight: 700;
+    text-align: center;
+    font-size: 30px;
+}
+
+#outside{
+    background-color: #ffecec;
+
+    border: 2px solid black;
+    border-color: black;
+
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 20px;
+}
+#content{
+    border: 10px solid black;
+    border-radius: 3px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    background-color: black;
+    overflow: hidden;
+}
+div.container div#buttondiv button {
+    margin-bottom: 20px;
+    margin-top: -20;
+    margin-left: 5%;
+}
+#insideSteckbrief{
+    border-radius: 3px;
+    border: 3px solid white;
+    background-color: white;
+    overflow: hidden;
+}
+
+.nav-link\ active\ show{
+    background-color: white;
+    border-bottom:2px solid white;
+    border: 2px solid;
+}
+.nav-link{
+    background-color: blue;
+    border: 4px solid black;
+    margin-left:1px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+}
+
+#login{
+    margin-left: 10%;
+    margin-bottom: 2%;
+    font-weight: bold;
+}
+
+#login #button{
+    font-weight: bold;
+}
+
+.form-style-2{
+	max-width: 500px;
+	padding: 20px 12px 10px 20px;
+	font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-2-heading{
+	font-weight: bold;
+	font-style: italic;
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 20px;
+	font-size: 15px;
+	padding-bottom: 3px;
+}
+.form-style-2 label{
+	display: block;
+	margin: 0px 0px 15px 0px;
+}
+.form-style-2 label > span{
+	width: 100px;
+	font-weight: bold;
+	float: left;
+	padding-top: 8px;
+	padding-right: 5px;
+}
+.form-style-2 span.required{
+	color:red;
+}
+.form-style-2 .tel-number-field{
+	width: 40px;
+	text-align: center;
+}
+.form-style-2 input.input-field, .form-style-2 .select-field{
+	width: 48%;	
+}
+.form-style-2 input.input-field, 
+.form-style-2 .tel-number-field, 
+.form-style-2 .textarea-field, 
+ .form-style-2 .select-field{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border: 1px solid #C2C2C2;
+	box-shadow: 1px 1px 4px #EBEBEB;
+	-moz-box-shadow: 1px 1px 4px #EBEBEB;
+	-webkit-box-shadow: 1px 1px 4px #EBEBEB;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 7px;
+	outline: none;
+}
+.form-style-2 .input-field:focus, 
+.form-style-2 .tel-number-field:focus, 
+.form-style-2 .textarea-field:focus,  
+.form-style-2 .select-field:focus{
+	border: 1px solid #0C0;
+}
+.form-style-2 .textarea-field{
+	height:100px;
+	width: 55%;
+}
+.form-style-2 input[type=submit],
+.form-style-2 input[type=button]{
+	border: none;
+	padding: 8px 15px 8px 15px;
+	background: #FF8500;
+	color: #fff;
+	box-shadow: 1px 1px 4px #DADADA;
+	-moz-box-shadow: 1px 1px 4px #DADADA;
+	-webkit-box-shadow: 1px 1px 4px #DADADA;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+}
+.form-style-2 input[type=submit]:hover,
+.form-style-2 input[type=button]:hover{
+	background: #EA7B00;
+	color: #fff;
+}

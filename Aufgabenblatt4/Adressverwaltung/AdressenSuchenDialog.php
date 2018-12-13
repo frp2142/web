@@ -22,7 +22,7 @@ class AdressenSuchenDialog {
 		$this->filterAnzeigenIntern(true, "");
 	}
 	
-	public function filterAnzeigenIntern($finish, $onload) {
+	public function filterAnzeigenIntern($onload) {
 ?>
 <!DOCTYPE html>
 <html>
